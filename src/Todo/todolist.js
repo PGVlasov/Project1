@@ -14,14 +14,20 @@ function ToDoList (props) {
     return (
         <ul style = {styles.ul}>
           {props.todos.map((todo, index) => {
-              return <ToDoItem todo ={todo} key = {todo.id} index = {index}/>
+              return (<ToDoItem 
+              todo ={todo} 
+              key = {todo.id} 
+              index = {index}
+              onChange={props.onSelectMark}
+              />)
           })}
         </ul>
     )
 }
 
 ToDoList.propTypes = {
-    todos: PropTypes.arrayOf(PropTypes.object).isRequired
+    todos: PropTypes.arrayOf(PropTypes.object).isRequired,
+    onSelectMark: PropTypes.func.isRequired
 }
 
 export default ToDoList
