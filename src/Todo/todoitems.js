@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import Context from "../context";
 
 const styles = {
   li: {
@@ -14,39 +15,34 @@ const styles = {
   input: {
     marginRight: "1rem"
   },
-  rem: {
+  remove: {
     background: "green",
     borderRadius: "4px",
     color: "#fff",
     border: "none"
   }
-  /*done: {
-        textDecoration: 'line-through'
-    }*/
 };
 
 function ToDoItem({ todo, index, onChange }) {
-  /* console.log('todo', todo)*/ /*работает*/
-  const classes = [];
-
-  if (todo.complited) {
-    classes.push("done"); /* должен зачеркнуться, не работает */
-  }
-
+  const { removeProd } = useContext(Context);
   return (
     <li style={styles.li}>
-      <span className={classes.join(" ")}>
+      <span className={todo.complited ? "done" : ""}>
         <input
           type="checkbox"
-          checked={todo.complited} /* не работает*/
+          checked={todo.complited}
           style={styles.input}
-          onChange={() => onChange(todo.id)}
+          onChange={() => {
+            onChange(todo.id);
+          }}
         />
         <strong>{index + 1}</strong>
         {todo.title}
       </span>
 
-      <button style={styles.rem}>&times;</button>
+      <button style={styles.remove} onClick={() => removeProd(todo.id)}>
+        &times;
+      </button>
     </li>
   );
 }
