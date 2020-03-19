@@ -6,7 +6,8 @@ const styles = {
   ul: {
     listStyle: "none",
     margin: 0,
-    paddinng: 0
+    paddinng: 0,
+    border: "1px solid #ccc"
   }
 };
 
