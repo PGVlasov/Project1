@@ -6,9 +6,13 @@ import Newlist from "./Todo/NewList";
 
 function App() {
   const [todos, setTodos] = React.useState([
-    { id: 1, complited: false, title: "Купить сыр" },
-    { id: 2, complited: false, title: "Купить хлеб" }
+    { id: 1, complited: false, title: "сыр" },
+    { id: 2, complited: false, title: "хлеб" },
+    { id: 3, complited: false, title: "молоко" },
+    { id: 4, complited: false, title: "яйца" }
   ]);
+
+  let newtodos = [];
 
   function selectMarkTodo(id) {
     setTodos(
@@ -24,6 +28,11 @@ function App() {
 
   function removeProd(id) {
     setTodos(todos.filter(todo => todo.id !== id));
+    /*console.log(todos.filter(todo => todo.id === id));*/
+  }
+
+  function addNewProd(id) {
+    newtodos.concat([todos.filter(todo => todo.id === id)]);
   }
 
   function addProd(title) {
@@ -37,8 +46,6 @@ function App() {
       ])
     );
   }
-
-  let newtodos = [];
 
   return (
     <Context.Provider value={{ removeProd }}>
@@ -55,7 +62,7 @@ function App() {
       <div className="nextTime">
         <h2>Not bought</h2>
         {newtodos.length ? (
-          <Newlist todos={todos} onSelectMark={selectMarkTodo} />
+          <Newlist newtodos={newtodos} addNewProd={addNewProd} />
         ) : (
           <p> List is empty!</p>
         )}
