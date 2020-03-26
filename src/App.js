@@ -2,7 +2,10 @@ import React from "react";
 import ToDoList from "./Todo/todolist";
 import Context from "./context";
 import AddTodo from "./Todo/AddTodo";
-import Newlist from "./Todo/NewList";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { NavBar } from "./components/NovBar";
+import { Archive } from "./components/Archive";
+import { NewList } from "./components/NewList";
 
 function App() {
   const [todos, setTodos] = React.useState([
@@ -11,8 +14,6 @@ function App() {
     { id: 3, complited: false, title: "молоко" },
     { id: 4, complited: false, title: "яйца" }
   ]);
-
-  let newtodos = [];
 
   function selectMarkTodo(id) {
     setTodos(
@@ -28,11 +29,7 @@ function App() {
 
   function removeProd(id) {
     setTodos(todos.filter(todo => todo.id !== id));
-    /*console.log(todos.filter(todo => todo.id === id));*/
-  }
-
-  function addNewProd(id) {
-    newtodos.concat([todos.filter(todo => todo.id === id)]);
+    console.log(todos.filter(todo => todo.id === id));
   }
 
   function addProd(title) {
@@ -48,26 +45,31 @@ function App() {
   }
 
   return (
-    <Context.Provider value={{ removeProd }}>
-      <div className="wrapper">
-        <h1>Shopping list</h1>
-        <AddTodo onCreate={addProd} />
-        <h2>List</h2>
-        {todos.length ? (
-          <ToDoList todos={todos} onSelectMark={selectMarkTodo} />
-        ) : (
-          <p> List is empty!</p>
-        )}
-      </div>
-      <div className="nextTime">
-        <h2>Not bought</h2>
-        {newtodos.length ? (
-          <Newlist newtodos={newtodos} addNewProd={addNewProd} />
-        ) : (
-          <p> List is empty!</p>
-        )}
-      </div>
-    </Context.Provider>
+    <BrowserRouter>
+      <NavBar />
+      <Switch>
+        <Route>
+          path = {"/"} exact component={App}
+        </Route>
+        <Route>
+          path = {"/NewList"} component={NewList}
+        </Route>
+        <Route>
+          path = {"/Archive"} component={Archive}
+        </Route>
+      </Switch>
+      <Context.Provider value={{ removeProd }}>
+        <div className="wrapper">
+          <AddTodo onCreate={addProd} />
+          <h2>List</h2>
+          {todos.length ? (
+            <ToDoList todos={todos} onSelectMark={selectMarkTodo} />
+          ) : (
+            <p> List is empty!</p>
+          )}
+        </div>
+      </Context.Provider>
+    </BrowserRouter>
   );
 }
 

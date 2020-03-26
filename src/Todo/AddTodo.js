@@ -15,7 +15,11 @@ function AddTodo({ onCreate }) {
 
   return (
     <form style={{ marginBottom: "2rem" }} onSubmit={submitProduct}>
-      <input value={value} onChange={event => setValue(event.target.value)} />
+      <input
+        value={value}
+        onChange={event => setValue(event.target.value)}
+        placeholder=" add product"
+      />
       <button type="submit">add product</button>
     </form>
   );
