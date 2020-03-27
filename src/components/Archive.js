@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
 
-export function Archive() {
+export const Archive = () => {
   return (
-    <div>
+    <Fragment>
       <h1>archive of your purchases</h1>
-    </div>
+    </Fragment>
   );
-}
+};

@@ -9,10 +9,10 @@ import { NewList } from "./components/NewList";
 
 function App() {
   const [todos, setTodos] = React.useState([
-    { id: 1, complited: false, title: "сыр" },
-    { id: 2, complited: false, title: "хлеб" },
-    { id: 3, complited: false, title: "молоко" },
-    { id: 4, complited: false, title: "яйца" }
+    { id: 1, complited: false, title: "туалетная бумага" },
+    { id: 2, complited: false, title: "греча" },
+    { id: 3, complited: false, title: "маска" },
+    { id: 4, complited: false, title: "анисептик" }
   ]);
 
   function selectMarkTodo(id) {
@@ -48,15 +48,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route>
-          path = {"/"} exact component={App}
-        </Route>
-        <Route>
-          path = {"/NewList"} component={NewList}
-        </Route>
-        <Route>
-          path = {"/Archive"} component={Archive}
-        </Route>
+        <Route path={"/"} exact component={App} />
+        <Route path={"/NewList"} component={NewList} />
+        <Route path={"/Archive"} component={Archive} />
       </Switch>
       <Context.Provider value={{ removeProd }}>
         <div className="wrapper">
