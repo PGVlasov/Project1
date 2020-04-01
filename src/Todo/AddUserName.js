@@ -18,8 +18,7 @@ function AddNewUser({ onCreate }) {
       <input
         value={name}
         onChange={event => setName(event.target.value)}
-        placeholder=" 
-        enter your name"
+        placeholder="enter your name"
       />
       <button type="submit"> enter your name</button>
     </form>

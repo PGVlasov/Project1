@@ -32,17 +32,17 @@ export const NavBar = () => (
     </div>
     <ul className="navbar-nav" style={styles.navbarnav}>
       <li className="nav-item">
-        <NavLink className="nav-link" to="/Main" exact>
+        <NavLink className="nav-link" to="/main" exact>
           Main
         </NavLink>
       </li>
       <li className="nav-item">
-        <NavLink className="nav-link" to="/NewList">
+        <NavLink className="nav-link" to="/newList">
           NextTime
         </NavLink>
       </li>
       <li className="nav-item">
-        <NavLink className="nav-link" to="/Archive">
+        <NavLink className="nav-link" to="/archive">
           Archive
         </NavLink>
       </li>
