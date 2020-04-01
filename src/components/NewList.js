@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 
 export const NewList = () => {
   return (
-    <Fragment>
+    <div class="nexttime">
       <h1>list is empty</h1>
-    </Fragment>
+    </div>
   );
 };

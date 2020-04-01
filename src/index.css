@@ -18,7 +18,12 @@ code {
   width: 600px;
 }
 
-.nextTime {
+.nexttime {
+  padding-top: 5rem;
+  margin: 0 auto;
+  width: 600px;
+}
+.archivelict {
   padding-top: 5rem;
   margin: 0 auto;
   width: 600px;
