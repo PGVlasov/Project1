@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function AddNewUser({ onCreate }) {
   const [name, setName] = useState("");
 
-  function submitProduct(event) {
+  function submitUser(event) {
     event.preventDefault();
 
     if (name.trim()) {
@@ -14,10 +14,13 @@ function AddNewUser({ onCreate }) {
   }
 
   return (
-    <form style={{ marginBottom: "2rem" }} onSubmit={submitProduct}>
+    <form
+      style={{ marginBottom: "2rem", marginTop: "2rem" }}
+      onSubmit={submitUser}
+    >
       <input
         value={name}
-        onChange={event => setName(event.target.value)}
+        onChange={(event) => setName(event.target.value)}
         placeholder="enter your name"
       />
       <button type="submit"> enter your name</button>
@@ -26,7 +29,7 @@ function AddNewUser({ onCreate }) {
 }
 
 AddNewUser.propTypes = {
-  onCreate: PropTypes.func.isRequired
+  onCreate: PropTypes.func.isRequired,
 };
 
 export default AddNewUser;

@@ -7,8 +7,8 @@ const styles = {
     listStyle: "none",
     margin: 0,
     paddinng: 0,
-    border: "1px solid #ccc"
-  }
+    border: "1px solid #ccc",
+  },
 };
 
 function ToDoList(props) {
@@ -30,7 +30,7 @@ function ToDoList(props) {
 
 ToDoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onSelectMark: PropTypes.func.isRequired
+  onSelectMark: PropTypes.func.isRequired,
 };
 
 export default ToDoList;
